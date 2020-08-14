@@ -12,17 +12,19 @@
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      align-content: space-between;
+      align-content: space-evenly;
     }
   </style>
 </head>
 <body>
-  <div id="boxes">
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-  </div>
+  <div id="boxes"></div>
+  
+  <script> 
+    function createBox(div) {
+      div.innerHTML = div.innerHTML + "<div class=\"box\"></div>";
+    }
+    
+    for(var i; i < 6; i++) {createBox(document.getElementById("boxes"));}
+  </script>
 </body>
 </html>
