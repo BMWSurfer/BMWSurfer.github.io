@@ -1,0 +1,44 @@
+<! doctype HTML >
+<html>
+    <head>
+        <style>
+            body {
+                margin: 0px;
+                padding: 0px;
+                background-color: black /*hsl(0, 100, 10)*/;
+            }
+            .star {
+                width: 2px;
+                height: 2px;
+                border-radius: 50%;
+                position: absolute;
+                display:block;
+                background-color: white;
+            }
+            
+            @keyframes fader {
+                0% {opacity:100%;}
+                50% {opacity:25%;}
+                100% {opacity:100%;}
+            }
+        </style>
+    </head>
+    <body>
+        <div id="starfield"></div>
+        <script>
+            var size = 1000;
+            console.log(window.innerWidth + " " + window.innerHeight);
+            for(i = 0; i < size; i++) {
+                el = document.getElementById("starfield");
+                leftOffset = Math.floor(Math.random() * (window.innerWidth-10)); 
+                topOffset = Math.floor(Math.random() * (window.innerHeight-10));
+                diameter = Math.floor(Math.random() * 5);
+                animationDelay = 5+Math.floor(Math.random()*10);
+                animationDuration = 5+Math.floor(Math.random()*15);
+                el.innerHTML = el.innerHTML + "<span class=\"star\" style=\"animation-name: fader; animation-iteration-count: infinite; animation-duration: " + animationDuration + "s; animation-delay: " + animationDelay + "s; width: " + diameter + "px; height:" + diameter + "px; left:" + leftOffset + "px; top:"+ topOffset + "px\"></span>"
+                
+
+            }    
+        </script>
+    </body>
+</html>
